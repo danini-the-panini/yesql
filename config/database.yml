@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: yesql_development
+
+test:
+  <<: *default
+  database: yesql_test
+
+production:
+  <<: *default
+  database: yesql_production
