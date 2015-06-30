@@ -1,5 +1,18 @@
 h2 Documents
 
+.search-box
+  = form_tag(documents_path, method: :get) do
+    = label_tag(:title, "Title:")
+    = text_field_tag(:title)
+
+    = label_tag('body[foo]', "Foo:")
+    = text_field_tag('body[foo]')
+
+    = label_tag('body[bar]', "Bar:")
+    = text_field_tag('body[bar]')
+
+    = submit_tag("Search")
+
 table
   thead
     tr
