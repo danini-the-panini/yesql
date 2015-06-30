@@ -1,0 +1,7 @@
+h2 New Document
+
+= form_tag(documents_path) do
+  = render 'form'
+
+  = submit_tag("Create")
+  = link_to 'Cancel', documents_path

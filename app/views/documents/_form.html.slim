@@ -1,0 +1,11 @@
+.form-section
+  = label_tag(:title, "Title:")
+  = text_field_tag(:title, @document.title)
+
+.form-section
+  = label_tag('body[foo]', "Foo:")
+  = text_field_tag('body[foo]', @document.body['foo'])
+  
+.form-section
+  = label_tag('body[bar]', "Bar:")
+  = text_field_tag('body[bar]', @document.body['bar'])
