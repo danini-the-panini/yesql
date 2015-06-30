@@ -1,0 +1,15 @@
+h2 documents
+
+table
+  thead
+    tr
+      th #
+      th Title
+      th Body
+
+  tbody
+    - @documents.each do |doc|
+      tr
+        td= doc.id
+        td= link_to doc.title, doc
+        td= doc.body
