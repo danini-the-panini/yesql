@@ -1,7 +1,7 @@
-h2 New Document
+h2 New #{@document.type.titlecase}
 
 = form_tag(documents_path) do
-  = render 'form'
+  = render "#{@document.type.underscore}_form"
 
   = submit_tag("Create")
   = link_to 'Cancel', documents_path

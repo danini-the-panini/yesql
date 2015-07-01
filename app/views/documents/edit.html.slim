@@ -1,7 +1,7 @@
 h2= @document.title
 
 = form_tag(document_path(@document), method: :put) do
-  = render 'form'
+  = render "#{@document.type.underscore}_form"
 
   = submit_tag("Update")
   = link_to 'Cancel', document_path(@document)

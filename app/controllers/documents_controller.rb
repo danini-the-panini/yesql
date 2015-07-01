@@ -11,11 +11,11 @@ class DocumentsController < AuthenticatedController
   end
 
   def new
-    @document = Document.new(body: {})
+    @document = Document.new(body: {}, type: params[:type])
   end
 
   def create
-    @document = Document.new(title: params[:title], body: params[:body])
+    @document = Document.new(title: params[:title], body: params[:body], type: params[:type])
 
     if @document.save
       redirect_to document_path(@document)

@@ -1,4 +1,4 @@
-class DocumentValidator < ActiveModel::Validator
+class FooBarDocumentValidator < ActiveModel::Validator
 
   def validate(record)
     validate_foo(record)

@@ -26,11 +26,13 @@ table
     - @documents.each do |doc|
       tr
         td= doc.id
-        td= doc.type
+        td= doc.type.titlecase
         td= link_to doc.title, document_path(doc)
         td= doc.body
     - if @documents.blank?
       tr
         td(colspan="3") No results
 
-= link_to 'New', new_document_path, type: 'FooBarDocument'
+= link_to 'New Foo Bar', new_document_path(type: 'FooBarDocument')
+br
+= link_to 'New Lorem Ipsum', new_document_path(type: 'LoremIpsumDocument')

@@ -1,0 +1,5 @@
+= render 'form_common'
+
+.form-section
+  = label_tag('body[lorem]', "Lorem:")
+  = text_field_tag('body[lorem]', @document.body['lorem'])
