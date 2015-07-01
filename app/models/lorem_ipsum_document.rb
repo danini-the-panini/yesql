@@ -1,0 +1,2 @@
+class LoremIpsumDocument < Document
+end

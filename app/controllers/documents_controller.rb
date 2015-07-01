@@ -18,7 +18,7 @@ class DocumentsController < AuthenticatedController
     @document = Document.new(title: params[:title], body: params[:body])
 
     if @document.save
-      redirect_to @document
+      redirect_to document_path(@document)
     else
       render :new
     end
@@ -38,9 +38,9 @@ class DocumentsController < AuthenticatedController
     @document.body = params[:body]
 
     if @document.save
-      redirect_to @document
+      redirect_to document_path(@document)
     else
-      render :edit
+      render :editw
     end
   end
 

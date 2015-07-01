@@ -1,0 +1,2 @@
+class FooBarDocument < Document
+end
