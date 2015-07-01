@@ -3,5 +3,5 @@ h2= @document.title
 = form_tag(@document, method: :put) do
   = render 'form'
 
-  = link_to 'Cancel', @document
   = submit_tag("Update")
+  = link_to 'Cancel', @document
