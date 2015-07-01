@@ -21,6 +21,7 @@ table
       th Type
       th Title
       th Body
+      th Creator
 
   tbody
     - @documents.each do |doc|
@@ -29,6 +30,7 @@ table
         td= doc.type.titlecase
         td= link_to doc.title, document_path(doc)
         td= doc.body
+        td= doc.user.email
     - if @documents.blank?
       tr
         td(colspan="3") No results

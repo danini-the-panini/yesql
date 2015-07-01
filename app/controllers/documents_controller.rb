@@ -16,6 +16,7 @@ class DocumentsController < AuthenticatedController
 
   def create
     @document = Document.new(title: params[:title], body: params[:body], type: params[:type])
+    @document.user = current_user
 
     if @document.save
       redirect_to document_path(@document)
