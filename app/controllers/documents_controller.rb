@@ -1,6 +1,13 @@
 class DocumentsController < AuthenticatedController
   def index
     @documents = Document.all
+    if not params[:title].blank?
+      @documents = @documents.where('title ILIKE ?', "%#{params[:title]}%")
+    end
+    if not params[:body].blank?
+      @documents = @documents.where("body ->> 'foo' ILIKE ?", "%#{params[:body][:foo]}%") unless params[:body][:foo].blank?
+      @documents = @documents.where("body ->> 'bar' ILIKE ?", "%#{params[:body][:bar]}%") unless params[:body][:bar].blank?
+    end
   end
 
   def new

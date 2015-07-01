@@ -3,15 +3,16 @@ h2 Documents
 .search-box
   = form_tag(documents_path, method: :get) do
     = label_tag(:title, "Title:")
-    = text_field_tag(:title)
+    = text_field_tag(:title, params[:title])
 
     = label_tag('body[foo]', "Foo:")
-    = text_field_tag('body[foo]')
+    = text_field_tag('body[foo]', params.fetch(:body, {})[:foo])
 
     = label_tag('body[bar]', "Bar:")
-    = text_field_tag('body[bar]')
+    = text_field_tag('body[bar]', params.fetch(:body, {})[:bar])
 
     = submit_tag("Search")
+    = link_to 'X', documents_path
 
 table
   thead
@@ -26,5 +27,8 @@ table
         td= doc.id
         td= link_to doc.title, doc
         td= doc.body
+    - if @documents.blank?
+      tr
+        td(colspan="3") No results
 
 = link_to 'New', new_document_path
