@@ -15,9 +15,13 @@ class DocumentsController < AuthenticatedController
   end
 
   def create
-    @document = Document.create(title: params[:title], body: params[:body])
+    @document = Document.new(title: params[:title], body: params[:body])
 
-    redirect_to @document
+    if @document.save
+      redirect_to @document
+    else
+      render :new
+    end
   end
 
   def show
@@ -32,9 +36,12 @@ class DocumentsController < AuthenticatedController
     find_document
     @document.title = params[:title]
     @document.body = params[:body]
-    @document.save!
 
-    redirect_to @document
+    if @document.save
+      redirect_to @document
+    else
+      render :edit
+    end
   end
 
   def destroy
