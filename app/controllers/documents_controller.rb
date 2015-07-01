@@ -40,7 +40,7 @@ class DocumentsController < AuthenticatedController
     if @document.save
       redirect_to document_path(@document)
     else
-      render :editw
+      render :edit
     end
   end
 
